@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "postversion": "git push --all && git push --tags"
   },
   "repository": {
     "type": "git",
