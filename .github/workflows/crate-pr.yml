@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Create file
-        run: "echo \nby actions >> sample.txt"
+        run: "date +%s >> sample.txt"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v1
