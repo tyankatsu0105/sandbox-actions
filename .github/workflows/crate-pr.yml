@@ -1,13 +1,16 @@
 name: Create PR
 
-on:
-  push:
-    branches:
-      - release
+on: push
+# on:
+#   push:
+#     branches:
+#       - release
 
 jobs:
   createPullRequest:
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/heads/release')
+
 
     steps:
       - uses: actions/checkout@v1
