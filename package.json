@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "commit": "git-cz",
-    "postversion": "sh scripts/checkout-release && git push --all && git push --tags"
+    "preversion": "sh scripts/checkout-release",
+    "postversion": "git push --all && git push --tags"
   },
   "repository": {
     "type": "git",
