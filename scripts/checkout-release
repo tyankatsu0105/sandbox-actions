@@ -1,6 +1,7 @@
 #!/bin/bash
 
 git branch -D release
+git push --delete origin release
 git checkout -b release
 
 VERSION=$(cat package.json | grep -o '\"version\": \"[^\"]*' | grep -o '[^\"]*$')
