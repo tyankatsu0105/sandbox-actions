@@ -1,0 +1,10 @@
+#!/bin/bash
+
+git branch -D release
+git checkout -b release
+
+VERSION=$(cat package.json | grep -o '\"version\": \"[^\"]*' | grep -o '[^\"]*$')
+
+echo ====================================
+echo See: https://github.com/tyankatsu0105/sandbox-actions/pulls\?utf8=%E2%9C%93\&q=head\:release\/$VERSION
+echo ====================================

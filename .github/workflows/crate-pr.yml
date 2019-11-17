@@ -1,10 +1,12 @@
 name: Create PR
 
-on: push
+on:
+  push:
+    branches:
+      - release
 
 jobs:
   createPullRequest:
-    if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
 
     steps:
@@ -12,6 +14,10 @@ jobs:
 
       - name: Create file
         run: "date +%s >> sample.txt"
+
+      - name: Read package.json version
+        run: "echo ::set-output name=PACKAGE_VERSION::$(cat package.json | grep -o '\"version\": \"[^\"]*' | grep -o '[^\"]*$')"
+        id: package-version
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v1
@@ -21,4 +27,5 @@ jobs:
           title: Postscript samplte.txt
           body: https://github.com/peter-evans/create-pull-request
           reviewers: tyankatsu0105
-          branch: chore/postscript
+          branch: release/${{ steps.package-version.outputs.PACKAGE_VERSION }}
+          branch-suffix: none
