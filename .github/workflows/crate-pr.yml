@@ -26,6 +26,7 @@ jobs:
           commit-message: Create PR by actions
           title: Postscript samplte.txt
           body: https://github.com/peter-evans/create-pull-request
+          base: master
           reviewers: tyankatsu0105
           branch: release/${{ steps.package-version.outputs.PACKAGE_VERSION }}
           branch-suffix: none
