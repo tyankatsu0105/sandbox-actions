@@ -1,16 +1,16 @@
 name: Access Repository
 
-on: pull_request
+on: [push, pull_request]
 
 jobs:
-  build:
+  ls:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          repository: 'gridsome/eslint-plugin-gridsome'
-          ref: 'master'
+      # - uses: actions/checkout@v2
+      #   with:
+      #     repository: 'gridsome/eslint-plugin-gridsome'
+      #     ref: 'master'
 
       - name: ls
         shell: bash
