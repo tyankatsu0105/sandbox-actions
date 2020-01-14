@@ -1,0 +1,32 @@
+name: Create PR
+
+on:
+  push:
+    branches:
+      - create-PR
+
+jobs:
+  createPullRequest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Create file
+        run: "date +%s >> sample.txt"
+
+      - name: Read package.json version
+        run: "echo ::set-output name=PACKAGE_VERSION::$(cat package.json | grep -o '\"version\": \"[^\"]*' | grep -o '[^\"]*$')"
+        id: package-version
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Create PR by actions
+          title: Postscript samplte.txt
+          body: https://github.com/peter-evans/create-pull-request
+          base: master
+          reviewers: tyankatsu0105
+          branch: release/${{ steps.package-version.outputs.PACKAGE_VERSION }}
+          branch-suffix: none
