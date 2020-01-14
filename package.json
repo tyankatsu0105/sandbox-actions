@@ -1,20 +1,10 @@
 {
   "name": "sandbox-actions",
-<<<<<<< HEAD
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-=======
-  "version": "1.0.7",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "commit": "git-cz",
-    "preversion": "sh scripts/checkout-release",
-    "postversion": "git push --all && git push --tags"
->>>>>>> 1f0ef4b6802a3fb3dfcd67ad896f5530b269a73b
   },
   "repository": {
     "type": "git",
